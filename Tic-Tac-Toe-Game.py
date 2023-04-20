@@ -77,9 +77,6 @@ window.geometry("350x390")
 label = Label(window, text="Tic Tac Toe GAME !!", font="Arial 20 bold")
 label.pack()
 
-
-
-
 # Canevas
 canvas = Canvas(window, width=333, height=333, background="black")
 canvas.create_line(0, 111, 333, 111, fill="white")
@@ -87,6 +84,12 @@ canvas.create_line(0, 222, 333, 222, fill="white")
 canvas.create_line(111, 0, 111, 333, fill="white")
 canvas.create_line(222, 0, 222, 333, fill="white")
 canvas.pack()
+
+def reset_canvas():
+    canvas.delete("signe")
+    case_1["valeur"] = case_2["valeur"] = case_3["valeur"] = case_4["valeur"] = case_5["valeur"] = case_6["valeur"] = \
+    case_7["valeur"] = case_8["valeur"] = case_9["valeur"] = ""
+
 
 def quelle_case(event):
     global n_case
@@ -160,12 +163,21 @@ def quelle_case(event):
             a = True
         if a == True:
             if askyesno("Tic Tac Toe Game", "Le joueur {} à gagné cette partie\nVoulez vous rejouer ?!".format(signe[0])):
-                canvas.delete("signe")
-                case_1["valeur"] = case_2["valeur"] = case_3["valeur"] = case_4["valeur"] = case_5["valeur"] = case_6["valeur"] = case_7["valeur"] = case_8["valeur"] = case_9["valeur"] = ""
+                reset_canvas()
+                #canvas.delete("signe")
+                #case_1["valeur"] = case_2["valeur"] = case_3["valeur"] = case_4["valeur"] = case_5["valeur"] = case_6["valeur"] = case_7["valeur"] = case_8["valeur"] = case_9["valeur"] = ""
 
             else:
                 window.quit()
 
+        if case_1["valeur"] and case_2["valeur"] and case_3["valeur"] and case_4["valeur"] and case_5["valeur"] and case_6["valeur"] and case_7["valeur"] and case_8["valeur"] and case_9["valeur"] != "" :
+            if askyesno("Tic Tac Toe Game", "Match nul, aucun gagant !!\nVoulez-vous rejouer ?"):
+                reset_canvas()
+                #canvas.delete("signe")
+                #case_1["valeur"] = case_2["valeur"] = case_3["valeur"] = case_4["valeur"] = case_5["valeur"] = case_6["valeur"] = case_7["valeur"] = case_8["valeur"] = case_9["valeur"] = ""
+
+            else:
+                window.quit()
 
         signe.reverse()
 
