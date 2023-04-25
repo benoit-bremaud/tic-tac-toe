@@ -5,8 +5,6 @@ from tkinter import *
 from tkinter.messagebox import *
 import random
 
-
-
 """
 nouvelle déclaration du tableau des cases
 on commence par définir chaque case indépendemment
@@ -259,7 +257,6 @@ canvas.create_line(0, h_canvas/3, l_canvas, h_canvas/3, fill="white")
 canvas.create_line(0, 2*(h_canvas/3), l_canvas, 2*(h_canvas/3), fill="white")
 canvas.create_line(l_canvas/3, 0, l_canvas/3, h_canvas, fill="white")
 canvas.create_line(2*(l_canvas/3), 0, 2*(l_canvas/3), h_canvas, fill="white")
-print(l_canvas, h_canvas)
 canvas.pack()
 
 
